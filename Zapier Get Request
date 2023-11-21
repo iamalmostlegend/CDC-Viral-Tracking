@@ -1,0 +1,14 @@
+import requests
+
+cdc_api_url = "https://data.cdc.gov/resource/vutn-jzwm.json"
+
+def pull_cdc_data():
+    response = requests.get(cdc_api_url)
+
+    if response.status_code == 200:
+        print("Data Retrieved Successfully")
+        return response.csv()
+    else:
+        print("Failed to fetch CDC data from the API.")
+
+data = pull_cdc_data()
